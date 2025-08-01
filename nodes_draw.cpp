@@ -121,11 +121,11 @@ uint32_t Node::DrawNodeDataNamesDropdown(const char* label, uint32_t currentData
 void ValueNode::Draw() { }
 void NoiseNode::Draw() { }
 void SinNode::Draw() {}
-void TriNode::Draw() {}
 void MultiplyNode::Draw() {}
 void AddNode::Draw() {}
 void ResampleNode::Draw() {}
 void RotaryNode::Draw() {}
 void DrumNode::Draw() {}
+void SawNode::Draw() {}
 
 #endif
