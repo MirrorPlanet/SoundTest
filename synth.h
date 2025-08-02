@@ -7,7 +7,6 @@
 #include <functional>
 #include <string>
 #include "portaudio.h"
-//#include "portaudio/include/portaudio.h"
 #include "json.hpp"
 #include "nodes.h"
 #include "nodes_rotary_encoder.h"
@@ -23,8 +22,20 @@ using json = nlohmann::json;
 #ifndef SAMPLE_RATE 
     #define SAMPLE_RATE   (44100)
 #endif
-#ifndef FRAMES_PER_BUFFER
-    #define FRAMES_PER_BUFFER  (64)
+
+
+// increase buffer size on raspberry to enable smooth audio
+#ifdef RASPI
+    #ifndef FRAMES_PER_BUFFER
+        #define FRAMES_PER_BUFFER  (512)
+    #endif
+#else
+
+
+    #ifndef FRAMES_PER_BUFFER
+        #define FRAMES_PER_BUFFER  (64)
+    #endif
+
 #endif
 
 class NodeCreator;
